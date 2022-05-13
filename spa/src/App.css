@@ -4,6 +4,12 @@
   --main-background-colour: #e3e3e3;
   --main-font: "Roboto", sans-serif;
   --main-text-colour: #171717;
+  --pink-accent: #987d7c;
+  --brown-accent: #776d5a;
+  --purple-accent: #a09cb0;
+  --blue-accent: #a3b9c9;
+  --light-blue-accent: #abdae1;
+  --green-accent: #9eb09c;
 }
 
 body {

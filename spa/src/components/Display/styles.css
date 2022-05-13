@@ -4,3 +4,25 @@
   background-color: white;
   margin-top: 3%;
 }
+
+.display__title {
+  font-family: var(--main-font);
+  font-weight: 500;
+  margin: 20px 0px;
+}
+
+.display__container {
+  display: flex;
+}
+
+.display__title-inc-icon {
+  font-size: 30px;
+  margin: 25px 25px;
+  color: var(--green-accent);
+  cursor: pointer;
+}
+
+#calendar-icon {
+  color: var(--blue-accent);
+  margin-left: 0px;
+}
