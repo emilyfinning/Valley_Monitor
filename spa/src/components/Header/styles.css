@@ -1,0 +1,15 @@
+.nav {
+  background-color: var(--main-background-colour);
+  width: 100%;
+  height: 100px;
+}
+
+.tab__container {
+  display: flex;
+}
+
+.header__accent-bar {
+  width: 100%;
+  height: 10px;
+  background-color: white;
+}

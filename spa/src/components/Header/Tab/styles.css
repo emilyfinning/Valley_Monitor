@@ -1,0 +1,88 @@
+.tab--first {
+  display: flex;
+  cursor: pointer;
+}
+
+.tab {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab__center {
+  width: 180px;
+  height: 40px;
+  background-color: white;
+  top: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: var(--main-font);
+}
+
+.tab__left {
+  width: 25px;
+  height: 40px;
+  background-color: white;
+  top: 60px;
+  position: relative;
+  border-top-left-radius: 25px;
+}
+
+.tab__right {
+  width: 25px;
+  height: 40px;
+  background-color: white;
+  top: 60px;
+  position: relative;
+  border-top-right-radius: 25px;
+}
+
+.tab__accent__right {
+  background-color: transparent;
+  width: 30px;
+  height: 20px;
+  border-bottom-left-radius: 30px;
+  box-shadow: -17px 0 0 0 white;
+  top: 80px;
+  position: relative;
+}
+
+.tab__accent__left {
+  background-color: transparent;
+  width: 30px;
+  height: 20px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 17px 0 0 0 white;
+  top: 80px;
+  position: relative;
+}
+
+.tab__accent-circle {
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: relative;
+  left: -8px;
+}
+
+.tab__accent__left-unselected {
+  background-color: transparent;
+  width: 30px;
+  height: 20px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 17px 0 0 0 purple;
+  top: 80px;
+  position: relative;
+}
+
+.tab__accent__right-unselected {
+  background-color: transparent;
+  width: 30px;
+  height: 20px;
+  border-bottom-left-radius: 30px;
+  box-shadow: -17px 0 0 0 purple;
+  top: 80px;
+  position: relative;
+}
