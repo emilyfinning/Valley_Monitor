@@ -19,6 +19,14 @@ function Header() {
             />
           ))}
         </div>
+        <div className="header__user">
+          <div className="header__user-name">Emily Finning</div>
+          <img
+            src={require("../../images/blank-profile.png")}
+            alt="avatar"
+            className="header__user-avatar"
+          />
+        </div>
       </div>
       <div
         className="header__accent-bar"

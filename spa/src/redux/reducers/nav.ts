@@ -4,15 +4,15 @@ const initialState = {
   tabs: [
     {
       farm: "Amethyst",
-      accent: "purple",
+      accent: "#987D7C",
     },
     {
       farm: "Emerald",
-      accent: "Green",
+      accent: "#A09CB0",
     },
     {
       farm: "Sapphire",
-      accent: "Blue",
+      accent: "#A3B9C9",
     },
   ],
   activeTab: 0,

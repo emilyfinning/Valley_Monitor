@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   font-family: var(--main-font);
+  color: var(--main-text-colour);
 }
 
 .tab__left {
