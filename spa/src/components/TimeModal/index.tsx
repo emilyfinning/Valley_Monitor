@@ -18,12 +18,12 @@ const TimeModal: React.FC = () => {
   const [day, setDay] = useState(1);
   const { showTimeModal } = useSelector((state: any) => state.basics);
 
-  const selectSeason = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSeason(e.target.value);
+  const selectSeason = (season: string) => {
+    setSeason(season);
   };
 
-  const selectDay = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setDay(parseInt(e.target.value));
+  const selectDay = (day: string) => {
+    setDay(parseInt(day));
   };
 
   const closeTimeModal = () => {
@@ -56,7 +56,7 @@ const TimeModal: React.FC = () => {
             className="time-modal__save-button"
             onClick={submitTimeChange}
           >
-            SELECT
+            CONFIRM
             <BsCheckLg className="time-modal__save-icon" />
           </button>
         </div>
