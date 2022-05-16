@@ -8,8 +8,11 @@
   --brown-accent: #776d5a;
   --purple-accent: #a09cb0;
   --blue-accent: #a3b9c9;
+  --blue-accent-dark: #425d70;
   --light-blue-accent: #abdae1;
   --green-accent: #9eb09c;
+  --green-accent-dark: #51634f;
+  --cancel-accent: #633030;
 }
 
 body {

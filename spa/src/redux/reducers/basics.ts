@@ -5,6 +5,7 @@ const seasons = ["Winter", "Spring", "Summer", "Fall"];
 const initialState = {
   season: "Spring",
   day: 1,
+  showTimeModal: false,
 };
 
 const basicsReducer = createSlice({
@@ -31,10 +32,17 @@ const basicsReducer = createSlice({
           : state.season;
       state.day = state.day === 1 ? 28 : state.day - 1;
     },
+    toggleTimeModal(state: any, action: any) {
+      state.showTimeModal = !state.showTimeModal;
+    },
   },
 });
 
-export const { setGameTime, incrementGameTime, decrementGameTime } =
-  basicsReducer.actions;
+export const {
+  setGameTime,
+  incrementGameTime,
+  decrementGameTime,
+  toggleTimeModal,
+} = basicsReducer.actions;
 
 export default basicsReducer.reducer;

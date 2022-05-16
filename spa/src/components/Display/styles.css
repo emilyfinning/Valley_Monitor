@@ -20,9 +20,19 @@
   margin: 25px 25px;
   color: var(--green-accent);
   cursor: pointer;
+  transition: 0.3s color;
+}
+
+.display__title-inc-icon:hover {
+  color: var(--green-accent-dark);
 }
 
 #calendar-icon {
   color: var(--blue-accent);
   margin-left: 0px;
+  transition: 0.3s color;
+}
+
+#calendar-icon:hover {
+  color: var(--blue-accent-dark);
 }

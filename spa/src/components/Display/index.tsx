@@ -8,10 +8,11 @@ import {
 import {
   incrementGameTime,
   decrementGameTime,
-  setGameTime,
+  toggleTimeModal,
 } from "../../redux/reducers/basics";
 import "./styles.css";
 import Header from "../Header";
+import TimeModal from "../TimeModal";
 
 function Display() {
   const { season, day } = useSelector((state: any) => state.basics);
@@ -23,6 +24,10 @@ function Display() {
 
   const handleDecrement = () => {
     dispatch(decrementGameTime({ season: season, day: day }));
+  };
+
+  const openTimeModal = () => {
+    dispatch(toggleTimeModal(true));
   };
 
   return (
@@ -41,8 +46,10 @@ function Display() {
         <BsFillCalendar2EventFill
           id="calendar-icon"
           className="display__title-inc-icon"
+          onClick={openTimeModal}
         />
       </div>
+      <TimeModal />
     </div>
   );
 }
