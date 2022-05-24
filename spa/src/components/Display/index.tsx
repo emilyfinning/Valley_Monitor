@@ -30,6 +30,13 @@ function Display() {
     dispatch(toggleTimeModal(true));
   };
 
+  const getFarms = async () => {
+    const response = await (
+      await fetch(`${process.env.REACT_APP_API_URL}/rows/all`)
+    ).json();
+    console.log(response);
+  };
+
   return (
     <div className="display">
       <Header />
@@ -49,6 +56,7 @@ function Display() {
           onClick={openTimeModal}
         />
       </div>
+      <button onClick={() => getFarms()}>HERE</button>
       <TimeModal />
     </div>
   );
