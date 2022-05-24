@@ -1,13 +1,30 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./styles.css";
 import Tab from "./Tab";
+import { setTabs } from "../../redux/reducers/nav";
 
 function Header() {
   const { tabs, activeTab } = useSelector((state: any) => state.nav);
 
   const { loginWithRedirect, logout, user } = useAuth0();
+
+  const dispatch = useDispatch();
+
+  const getFarms = async () => {
+    const farms = await fetch(
+      `${process.env.REACT_APP_API_URL}/farms/em@emilyjay.co.uk`
+    ).then((res) => res.json());
+    console.log(farms);
+    dispatch(setTabs(farms));
+  };
+
+  useEffect(() => {
+    if (user) {
+      getFarms();
+    }
+  }, [user]);
 
   return (
     <div className="header">

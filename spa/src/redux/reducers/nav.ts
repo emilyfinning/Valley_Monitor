@@ -3,16 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   tabs: [
     {
-      farm: "Amethyst",
+      farm: "New Farm",
       accent: "#987D7C",
-    },
-    {
-      farm: "Emerald",
-      accent: "#A09CB0",
-    },
-    {
-      farm: "Sapphire",
-      accent: "#A3B9C9",
     },
   ],
   activeTab: 0,
@@ -25,9 +17,21 @@ const navReducer = createSlice({
     setActiveTab(state: any, action: any) {
       state.activeTab = action.payload;
     },
+    setTabs(state: any, action: any) {
+      let tabs = [];
+      console.log(action.payload);
+      for (const farm of action.payload.farms) {
+        tabs.push({
+          id: farm.id,
+          farm: farm.name,
+          accent: farm.accent,
+        });
+      }
+      state.tabs = tabs;
+    },
   },
 });
 
-export const { setActiveTab } = navReducer.actions;
+export const { setActiveTab, setTabs } = navReducer.actions;
 
 export default navReducer.reducer;

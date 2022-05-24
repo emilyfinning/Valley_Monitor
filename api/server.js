@@ -6,6 +6,8 @@ dotenv.config();
 
 const AWS = require("aws-sdk");
 
+const DynamoService = require("./Services/DynamoDBService");
+
 AWS.config.update({
   region: process.env.AWS_REGION,
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -24,23 +26,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/rows/all", (req, res) => {
-  const params = {
-    TableName: tableName,
-  };
-
-  client.scan(params, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      var items = [];
-      for (var i in data.Items) {
-        items.push(data.Items[i]["farmName"]);
-      }
-      res.contentType = "application/json";
-      res.send(items);
-    }
-  });
+app.get("/farms/:email", async (req, res) => {
+  const response = await DynamoService.getFarmList(client, req.params.email);
+  res.contentType = "application/json";
+  res.send(response);
 });
 
 app.listen(port, () => {
