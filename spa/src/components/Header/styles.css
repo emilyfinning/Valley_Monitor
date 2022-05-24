@@ -36,4 +36,30 @@
 .header__user-name {
   font-family: var(--main-font);
   color: var(--main-text-colour);
+  margin-top: 8px;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.header__info-container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.header__button {
+  font-family: var(--main-font);
+  font-size: 14px;
+  width: 90px;
+  font-weight: 600;
+  height: 35px;
+  background-color: var(--green-accent);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: 0.1s linear background-color;
+}
+
+.header__button:hover {
+  background-color: var(--green-accent-dark);
 }

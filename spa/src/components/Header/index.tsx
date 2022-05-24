@@ -23,16 +23,26 @@ function Header() {
           ))}
         </div>
         <div className="header__user">
-          <div className="header__user-name">{user?.name}</div>
-          <button onClick={() => loginWithRedirect()}>Log In</button>
-          <button onClick={() => logout({ returnTo: window.location.origin })}>
-            Log Out
-          </button>
-          <img
-            src={require("../../images/blank-profile.png")}
-            alt="avatar"
-            className="header__user-avatar"
-          />
+          {user ? (
+            <div className="header__info-container">
+              <div className="header__user-name">{user?.email}</div>
+              <button
+                className="header__button"
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <div className="header__info-container">
+              <button
+                className="header__button"
+                onClick={() => loginWithRedirect()}
+              >
+                Log In
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div
