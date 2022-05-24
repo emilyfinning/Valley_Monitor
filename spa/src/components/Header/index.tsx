@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
+import { BsFillPlusCircleFill } from "react-icons/bs";
 import "./styles.css";
 import Tab from "./Tab";
-import { setTabs } from "../../redux/reducers/nav";
+import { setTabs, toggleFarmModal } from "../../redux/reducers/nav";
+import FarmModal from "../FarmModal";
 
 function Header() {
   const { tabs, activeTab } = useSelector((state: any) => state.nav);
@@ -18,6 +20,10 @@ function Header() {
     ).then((res) => res.json());
     console.log(farms);
     dispatch(setTabs(farms));
+  };
+
+  const showFarmModal = () => {
+    dispatch(toggleFarmModal(true));
   };
 
   useEffect(() => {
@@ -38,6 +44,10 @@ function Header() {
               accentColour={tab.accent}
             />
           ))}
+          <BsFillPlusCircleFill
+            className="tab__add-icon"
+            onClick={showFarmModal}
+          />
         </div>
         <div className="header__user">
           {user ? (
@@ -66,6 +76,7 @@ function Header() {
         className="header__accent-bar"
         style={{ backgroundColor: tabs[activeTab].accent }}
       />
+      <FarmModal />
     </div>
   );
 }

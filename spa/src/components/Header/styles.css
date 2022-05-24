@@ -43,7 +43,7 @@
 
 .header__info-container {
   display: flex;
-  margin-top: 30px;
+  margin-top: -70px;
 }
 
 .header__button {
@@ -62,4 +62,18 @@
 
 .header__button:hover {
   background-color: var(--green-accent-dark);
+}
+
+.tab__add-icon {
+  color: grey;
+  font-size: 25px;
+  margin-top: 65px;
+  margin-left: -20px;
+  z-index: 5;
+  cursor: pointer;
+  transition: color 0.1s linear;
+}
+
+.tab__add-icon:hover {
+  color: rgb(58, 58, 58);
 }

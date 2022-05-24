@@ -36,28 +36,25 @@ const TimeModal: React.FC = () => {
   };
 
   return showTimeModal ? (
-    <div className="time-modal__overlay">
-      <div className="time-modal__container">
-        <div className="time-modal__header">
-          <div className="time-modal__title-container">
-            <BsFillCalendar2EventFill className="time-modal__calendar-icon" />
-            <h2 className="time-modal__title">Select a Date</h2>
+    <div className="modal__overlay">
+      <div className="modal__container">
+        <div className="modal__header">
+          <div className="modal__title-container">
+            <BsFillCalendar2EventFill className="modal__calendar-icon" />
+            <h2 className="modal__title">Select a Date</h2>
           </div>
-          <BsXLg className="time-modal__cancel" onClick={closeTimeModal} />
+          <BsXLg className="modal__cancel" onClick={closeTimeModal} />
         </div>
-        <div className="time-modal__input-container">
+        <div className="modal__input-container">
           <SelectOption
             name="Season"
             options={seasons}
             onChange={selectSeason}
           />
           <SelectOption name="Day" options={days} onChange={selectDay} />
-          <button
-            className="time-modal__save-button"
-            onClick={submitTimeChange}
-          >
+          <button className="modal__save-button" onClick={submitTimeChange}>
             CONFIRM
-            <BsCheckLg className="time-modal__save-icon" />
+            <BsCheckLg className="modal__save-icon" />
           </button>
         </div>
       </div>
