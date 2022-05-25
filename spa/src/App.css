@@ -133,3 +133,18 @@ body {
   margin-top: 10px;
   color: var(--main-text-colour);
 }
+
+.modal__error {
+  background-color: var(--pink-accent);
+  color: white;
+  font-family: var(--main-font);
+  padding: 20px;
+  font-weight: 500;
+}
+
+.modal__message {
+  color: var(--main-text-colour);
+  font-family: var(--main-font);
+  padding: 20px;
+  font-weight: 500;
+}

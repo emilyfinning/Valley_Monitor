@@ -9,6 +9,8 @@ const initialState = {
   ],
   activeTab: 0,
   showFarmModal: false,
+  showErrorModal: false,
+  refresh: false,
 };
 
 const navReducer = createSlice({
@@ -33,9 +35,21 @@ const navReducer = createSlice({
     toggleFarmModal(state: any, action: any) {
       state.showFarmModal = !state.showFarmModal;
     },
+    toggleErrorModal(state: any, action: any) {
+      state.showErrorModal = !state.showErrorModal;
+    },
+    refreshNav(state: any, action: any) {
+      state.refresh = !state.refresh;
+    },
   },
 });
 
-export const { setActiveTab, setTabs, toggleFarmModal } = navReducer.actions;
+export const {
+  setActiveTab,
+  setTabs,
+  toggleFarmModal,
+  refreshNav,
+  toggleErrorModal,
+} = navReducer.actions;
 
 export default navReducer.reducer;

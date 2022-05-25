@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const seasons = ["Winter", "Spring", "Summer", "Fall"];
 
 const initialState = {
+  userEmail: "",
   season: "Spring",
   day: 1,
   showTimeModal: false,
@@ -35,6 +36,9 @@ const basicsReducer = createSlice({
     toggleTimeModal(state: any, action: any) {
       state.showTimeModal = !state.showTimeModal;
     },
+    setUserEmail(state: any, action: any) {
+      state.userEmail = action.payload;
+    },
   },
 });
 
@@ -43,6 +47,7 @@ export const {
   incrementGameTime,
   decrementGameTime,
   toggleTimeModal,
+  setUserEmail,
 } = basicsReducer.actions;
 
 export default basicsReducer.reducer;

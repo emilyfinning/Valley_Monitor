@@ -1,40 +1,57 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import "./styles.css";
 import Tab from "./Tab";
-import { setTabs, toggleFarmModal } from "../../redux/reducers/nav";
+import {
+  setTabs,
+  toggleErrorModal,
+  toggleFarmModal,
+} from "../../redux/reducers/nav";
 import FarmModal from "../FarmModal";
+import ErrorModal from "../ErrorModal";
 
 function Header() {
-  const { tabs, activeTab } = useSelector((state: any) => state.nav);
+  const { tabs, activeTab, refresh, showFarmModal, showErrorModal } =
+    useSelector((state: any) => state.nav);
+  const { userEmail } = useSelector((state: any) => state.basics);
 
   const { loginWithRedirect, logout, user } = useAuth0();
 
   const dispatch = useDispatch();
 
-  const getFarms = async () => {
+  const getFarms = useCallback(async () => {
     const farms = await fetch(
-      `${process.env.REACT_APP_API_URL}/farms/em@emilyjay.co.uk`
+      `${process.env.REACT_APP_API_URL}/farms/${userEmail}`,
+      {
+        method: "GET",
+      }
     ).then((res) => res.json());
-    console.log(farms);
     dispatch(setTabs(farms));
-  };
+  }, [userEmail]);
 
-  const showFarmModal = () => {
-    dispatch(toggleFarmModal(true));
+  const attemptCreateFarm = () => {
+    if (tabs.length < 3) {
+      dispatch(toggleFarmModal(true));
+    } else {
+      dispatch(toggleErrorModal(true));
+    }
   };
 
   useEffect(() => {
-    if (user) {
+    if (userEmail) {
       getFarms();
     }
-  }, [user]);
+  }, [userEmail, getFarms, refresh]);
 
   return (
     <div className="header">
       <div className="nav">
+        <BsFillPlusCircleFill
+          className="tab__add-icon"
+          onClick={attemptCreateFarm}
+        />
         <div className="tab__container">
           {tabs.map((tab: any, i: number) => (
             <Tab
@@ -44,15 +61,11 @@ function Header() {
               accentColour={tab.accent}
             />
           ))}
-          <BsFillPlusCircleFill
-            className="tab__add-icon"
-            onClick={showFarmModal}
-          />
         </div>
         <div className="header__user">
           {user ? (
             <div className="header__info-container">
-              <div className="header__user-name">{user?.email}</div>
+              <div className="header__user-name">{userEmail}</div>
               <button
                 className="header__button"
                 onClick={() => logout({ returnTo: window.location.origin })}
@@ -76,7 +89,8 @@ function Header() {
         className="header__accent-bar"
         style={{ backgroundColor: tabs[activeTab].accent }}
       />
-      <FarmModal />
+      {showFarmModal && <FarmModal id={""} />}
+      {showErrorModal && <ErrorModal />}
     </div>
   );
 }
